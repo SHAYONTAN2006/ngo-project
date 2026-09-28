@@ -1,4 +1,4 @@
-export const mockDatabase = {
+﻿export const mockDatabase = {
   animals: [
     { 
       animal_id: "A1", 
@@ -8,7 +8,7 @@ export const mockDatabase = {
       age: "3 yrs", 
       status: "Available", 
       rescue_id: "R101", 
-      photo: "/src/assets/dog-max.jpeg", 
+      photo: "/assets/dog-max.jpeg", 
       tags: ["Vaccinated", "Friendly"],
       recovery_journey: [
         { date: '10 Days Ago', event: 'Rescued from street (Hit & Run)', status: 'completed' },
@@ -26,7 +26,7 @@ export const mockDatabase = {
       age: "2 yr", 
       status: "Available", 
       rescue_id: "R102", 
-      photo: "/src/assets/dog-luna.jpeg", 
+      photo: "/assets/dog-luna.jpeg", 
       tags: ["Vaccinated", "Playful"],
       recovery_journey: [
         { date: '3 Weeks Ago', event: 'Rescued from abandoned building', status: 'completed' },
@@ -44,7 +44,7 @@ export const mockDatabase = {
       age: "2 yrs", 
       status: "Available", 
       rescue_id: "R103", 
-      photo: "/src/assets/dog-rocky.jpeg", 
+      photo: "/assets/dog-rocky.jpeg", 
       tags: ["Healthy", "Energetic"],
       recovery_journey: [
         { date: '2 Months Ago', event: 'Surrendered by previous owner', status: 'completed' },
@@ -62,7 +62,7 @@ export const mockDatabase = {
       age: "2 Months", 
       status: "Available", 
       rescue_id: "R104", 
-      photo: "/src/assets/cat1.png", 
+      photo: "/assets/cat1.png", 
       tags: ["Playful", "Cute"],
       recovery_journey: [
         { date: '2 Weeks Ago', event: 'Rescued from a drain', status: 'completed' },
@@ -78,7 +78,7 @@ export const mockDatabase = {
       age: "3 Weeks", 
       status: "Foster", 
       rescue_id: "R105", 
-      photo: "/src/assets/cat2.png", 
+      photo: "/assets/cat2.png", 
       tags: ["Needs Bottle Feeding", "Tiny"],
       recovery_journey: [
         { date: '3 Days Ago', event: 'Found without mother', status: 'completed' },

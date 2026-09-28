@@ -14,8 +14,6 @@ import {
   Search,
   Menu
 } from 'lucide-react';
-import heroPhoto from '../assets/dog-hero.jpeg';
-import fosterPhoto from '../assets/foster.png';
 import { mockDatabase } from '../data/mockData';
 
 const workflow = [
@@ -310,7 +308,7 @@ export default function Home() {
         <div className="foster-container">
           <div className="foster-visual">
             <div className="foster-circle" style={{ overflow: 'hidden', padding: 0, border: '4px solid white', boxShadow: '0 30px 60px rgba(0,0,0,0.1)' }}>
-              <img src={fosterPhoto} alt="Foster Care" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/assets/foster.png" alt="Foster Care" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
             <div className="foster-mini-card">
               <Heart size={20} color="#ef4444" fill="#ef4444" />
