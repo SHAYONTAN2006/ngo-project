@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { mockDatabase } from '../data/mockData';
 import { 
@@ -66,7 +66,7 @@ export default function AnimalProfile() {
             <span className="section-tag">{animal.status}</span>
             <h1 style={{ fontSize: '3rem', margin: '10px 0', color: '#1e293b' }}>{animal.name}</h1>
             <p style={{ fontSize: '1.2rem', color: '#64748b', marginBottom: '30px' }}>
-              {animal.breed} â€¢ {animal.gender} â€¢ {animal.age}
+              {animal.breed} | {animal.gender} | {animal.age}
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '40px' }}>

@@ -53,6 +53,38 @@ export const mockDatabase = {
         { date: '1 Month Ago', event: 'Started basic obedience training', status: 'completed' },
         { date: 'Today', event: 'Graduated training! Ready to be adopted.', status: 'current' }
       ]
+    },
+    { 
+      animal_id: "A4", 
+      name: "Milo", 
+      breed: "Calico Cat", 
+      gender: "Female", 
+      age: "2 Months", 
+      status: "Available", 
+      rescue_id: "R104", 
+      photo: "/src/assets/cat1.png", 
+      tags: ["Playful", "Cute"],
+      recovery_journey: [
+        { date: '2 Weeks Ago', event: 'Rescued from a drain', status: 'completed' },
+        { date: '1 Week Ago', event: 'Treated for infection', status: 'completed' },
+        { date: 'Today', event: 'Ready for Adoption!', status: 'current' }
+      ]
+    },
+    { 
+      animal_id: "A5", 
+      name: "Simba", 
+      breed: "Orange Tabby", 
+      gender: "Male", 
+      age: "3 Weeks", 
+      status: "Foster", 
+      rescue_id: "R105", 
+      photo: "/src/assets/cat2.png", 
+      tags: ["Needs Bottle Feeding", "Tiny"],
+      recovery_journey: [
+        { date: '3 Days Ago', event: 'Found without mother', status: 'completed' },
+        { date: 'Yesterday', event: 'Placed in neonatal foster', status: 'completed' },
+        { date: 'Today', event: 'Gaining weight steadily', status: 'current' }
+      ]
     }
   ],
   rescueCases: [

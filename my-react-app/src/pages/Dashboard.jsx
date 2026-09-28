@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   PawPrint, 
@@ -237,7 +237,7 @@ export default function Dashboard() {
                       </button>
                     </div>
                     <div className="kanban-card-desc">
-                      {caseItem.animal_type} â€¢ {caseItem.detail}
+                      {caseItem.animal_type} | {caseItem.detail}
                     </div>
                     <div className="kanban-card-footer">
                       <span className={`case-priority`} style={{color: caseItem.priority === 'Urgent' ? 'var(--red)' : 'var(--text-light)'}}>{caseItem.priority}</span>
@@ -365,7 +365,6 @@ export default function Dashboard() {
     <div className="dashboard-page">
       <aside className="sidebar">
         <Link to="/" className="brand">
-          <PawPrint className="brand-mark" size={24} color="#f97316" />
           <div className="brand-name">PawCare</div>
         </Link>
         <nav className="nav-group">
@@ -375,11 +374,8 @@ export default function Dashboard() {
               onClick={() => setActiveTab(item.name)}
               className={`nav-item ${activeTab === item.name ? 'active' : ''}`} 
               key={item.name}
-              style={{ width: '100%', textAlign: 'left', background: activeTab === item.name ? 'rgba(230, 106, 60, 0.08)' : 'transparent', border: 'none', cursor: 'pointer' }}
+              style={{ width: '100%', textAlign: 'left', background: activeTab === item.name ? 'rgba(230, 106, 60, 0.08)' : 'transparent', border: 'none', cursor: 'pointer', paddingLeft: '20px' }}
             >
-              <span className="nav-icon" style={{ background: activeTab === item.name ? 'white' : 'rgba(35, 78, 82, 0.05)' }}>
-                <item.icon size={16} color={activeTab === item.name ? 'var(--primary)' : 'var(--text-light)'} />
-              </span>
               {item.name}
             </button>
           ))}
@@ -393,7 +389,6 @@ export default function Dashboard() {
       <main className="main">
         <header className="topbar">
           <div className="search-box">
-            <Search size={18} color="#94a3b8" />
             <input 
               type="text" 
               placeholder="Search rescue cases, animals, volunteers..." 
@@ -402,8 +397,8 @@ export default function Dashboard() {
             />
           </div>
           <div className="top-actions">
-            <button type="button" className="icon-btn" aria-label="Notifications" onClick={() => alert('You have no new notifications.')}><Bell size={20} /></button>
-            <button type="button" className="icon-btn" aria-label="Messages" onClick={() => alert('You have no new messages.')}><Mail size={20} /></button>
+            <button type="button" className="icon-btn" aria-label="Notifications" onClick={() => alert('You have no new notifications.')}>Alerts</button>
+            <button type="button" className="icon-btn" aria-label="Messages" onClick={() => alert('You have no new messages.')}>Messages</button>
           </div>
         </header>
         

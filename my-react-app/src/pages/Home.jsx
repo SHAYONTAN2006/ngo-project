@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Heart, 
@@ -11,7 +11,8 @@ import {
   UploadCloud,
   CheckCircle2,
   Clock,
-  Search
+  Search,
+  Menu
 } from 'lucide-react';
 import heroPhoto from '../assets/dog-hero.jpeg';
 import fosterPhoto from '../assets/foster.png';
@@ -125,6 +126,85 @@ function RescueForm() {
   ); 
 }
 
+function HeroSlider() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const animals = mockDatabase.animals;
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % animals.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [animals.length]);
+
+  const currentAnimal = animals[currentIndex];
+
+  return (
+    <section className="hero" id="home" style={{ position: 'relative', overflow: 'hidden' }}>
+      {animals.map((animal, index) => (
+        <div 
+          key={animal.animal_id}
+          className="hero-container"
+          style={{
+            position: index === currentIndex ? 'relative' : 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            opacity: index === currentIndex ? 1 : 0,
+            transition: 'opacity 0.8s ease-in-out',
+            pointerEvents: index === currentIndex ? 'auto' : 'none',
+            zIndex: index === currentIndex ? 1 : 0
+          }}
+        >
+          <div className="hero-content">
+            <h1>ANIMAL FOR ADOPTION</h1>
+            <p>We are helping lost and abandoned animals find their forever homes. Currently, we have {animal.name}, a {animal.breed} looking for a loving family. If you are interested in adopting or fostering, please contact us.</p>
+            <div className="adoption-bullet-list">
+              <div className="bullet-line"><CheckCircle2 size={16} /> {animal.breed} : {animal.gender}</div>
+              <div className="bullet-line"><CheckCircle2 size={16} /> {animal.age}</div>
+              <div className="bullet-line"><CheckCircle2 size={16} /> {animal.tags.join(' & ')}</div>
+            </div>
+            <div className="adoption-contact">
+              <p>Location: Pune - Pashan</p>
+              <strong>Contact : 94052 66596</strong>
+              RSFW Foundation
+            </div>
+          </div>
+          <div className="hero-image">
+            <div className="support-badge">
+              <ShieldCheck size={16} color="#059669" />
+              REFORM SOCIAL WELFARE
+            </div>
+            <div className="hero-card-main" style={{ height: '400px', width: '100%', borderRadius: '16px', overflow: 'hidden' }}>
+              <img src={animal.photo} alt={`${animal.name} for adoption`} className="dog-photo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
+            <div className="secondary-photo-card">
+              <Heart size={24} color="#ef4444" fill="#ef4444" />
+              <div>
+                <strong>Adopt {animal.name}</strong>
+                <small>Healthy &amp; Safe</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+      <div style={{ position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '8px', zIndex: 10 }}>
+        {animals.map((_, index) => (
+          <button 
+            key={index} 
+            onClick={() => setCurrentIndex(index)}
+            style={{
+              width: '10px', height: '10px', borderRadius: '50%', border: 'none',
+              background: index === currentIndex ? 'var(--primary)' : '#cbd5e1',
+              cursor: 'pointer', transition: 'background 0.3s'
+            }}
+          />
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <div className="home-page">
@@ -142,45 +222,10 @@ export default function Home() {
             <Link to="/dashboard" className="login-btn">Admin Login</Link>
             <a href="#rescue" className="nav-rescue-btn">Report Rescue</a>
           </div>
-          <button type="button" className="mobile-menu" aria-label="Open menu">â˜°</button>
+          <button type="button" className="mobile-menu" aria-label="Open menu"><Menu size={24} /></button>
         </div>
       </header>
-      
-      <section className="hero" id="home">
-        <div className="hero-container">
-          <div className="hero-content">
-            <h1>DOG FOR ADOPTION</h1>
-            <p>We are helping lost and abandoned dogs find their forever homes. Currently, we have a Pomeranian looking for a loving family. This dog is healthy, neutered, and vaccinated. If you are interested in adopting or fostering, please contact us.</p>
-            <div className="adoption-bullet-list">
-              <div className="bullet-line"><CheckCircle2 size={16} /> Pomeranian : Male</div>
-              <div className="bullet-line"><CheckCircle2 size={16} /> Healthy</div>
-              <div className="bullet-line"><CheckCircle2 size={16} /> Neutered &amp; Vaccinated</div>
-            </div>
-            <div className="adoption-contact">
-              <p>Location: Pune - Pashan</p>
-              <strong>Contact : 94052 66596</strong>
-              <span>RSFW Foundation</span>
-            </div>
-          </div>
-          <div className="hero-image">
-            <div className="support-badge">
-              <ShieldCheck size={16} color="#059669" />
-              <span>REFORM SOCIAL WELFARE</span>
-            </div>
-            <div className="hero-card-main">
-              <img src={heroPhoto} alt="Dog for adoption" className="dog-photo" />
-            </div>
-            <div className="secondary-photo-card">
-              <Heart size={24} color="#ef4444" fill="#ef4444" />
-              <div>
-                <strong>Adopt Me</strong>
-                <small>Healthy &amp; Safe</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
+      <HeroSlider />
       <section className="quick-actions">
         <div className="quick-container">
           <QuickCard icon={AlertTriangle} title="Report a Rescue" copy="Found an animal that needs help?" href="#rescue" />
@@ -202,7 +247,7 @@ export default function Home() {
                 <div className="animal-title">
                   <div>
                     <h3>{animal.name}</h3>
-                    <p>{animal.breed} â€¢ {animal.gender}</p>
+                    <p>{animal.breed} | {animal.gender}</p>
                   </div>
                   <span className="age">{animal.age}</span>
                 </div>

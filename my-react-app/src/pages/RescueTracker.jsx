@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, PawPrint, CheckCircle2, ArrowLeft } from 'lucide-react';
 
@@ -92,7 +92,7 @@ export default function RescueTracker() {
             <div style={{ marginTop: '50px', borderTop: '1px solid #f1f5f9', paddingTop: '40px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px', backgroundColor: '#f8fafc', padding: '25px', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
                 <div>
-                  <span className="section-tag" style={{ marginBottom: '5px' }}>{result.id} â€¢ {result.animal}</span>
+                  <span className="section-tag" style={{ marginBottom: '5px' }}>{result.id} | {result.animal}</span>
                   <h2 style={{ margin: '0', color: '#1e293b', fontSize: '1.8rem' }}>{result.status}</h2>
                 </div>
                 <div style={{ textAlign: 'right' }}>
