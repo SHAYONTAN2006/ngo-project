@@ -132,9 +132,11 @@ export default function Home() {
         <div className="nav-container">
           <Brand onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
           <nav className="nav-links">
-            {['Home', 'Rescue', 'Animals', 'Foster', 'Adopt', 'How It Works'].map((label) => 
-              <a href={`#${label === 'How It Works' ? 'about' : label.toLowerCase()}`} key={label}>{label}</a>
-            )}
+            <Link to="/">Home</Link>
+            <a href="#rescue">Rescue</a>
+            <Link to="/animals">Animals</Link>
+            <Link to="/apply/foster">Foster</Link>
+            <Link to="/volunteer">Volunteer</Link>
           </nav>
           <div className="nav-actions">
             <Link to="/dashboard" className="login-btn">Admin Login</Link>
