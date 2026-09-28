@@ -14,6 +14,7 @@ import {
   Search
 } from 'lucide-react';
 import heroPhoto from '../assets/dog-hero.jpeg';
+import fosterPhoto from '../assets/foster.png';
 import { mockDatabase } from '../data/mockData';
 
 const workflow = [
@@ -261,8 +262,8 @@ export default function Home() {
       <section className="foster-section" id="foster">
         <div className="foster-container">
           <div className="foster-visual">
-            <div className="foster-circle">
-              <HomeIcon size={48} color="white" />
+            <div className="foster-circle" style={{ overflow: 'hidden', padding: 0, border: '4px solid white', boxShadow: '0 30px 60px rgba(0,0,0,0.1)' }}>
+              <img src={fosterPhoto} alt="Foster Care" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
             <div className="foster-mini-card">
               <Heart size={20} color="#ef4444" fill="#ef4444" />
@@ -294,7 +295,7 @@ export default function Home() {
             <h2>Don't shop.<span>Adopt.</span></h2>
             <p>Your next best friend might already be waiting for you.</p>
           </div>
-          <a href="#animals" className="white-btn">Browse Animals <ArrowRight size={16} /></a>
+          <Link to="/animals" className="white-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>Browse Animals <ArrowRight size={16} /></Link>
         </div>
       </section>
       
@@ -305,7 +306,7 @@ export default function Home() {
           <p>Whether you rescue, foster, volunteer or adopt, you can make a difference.</p>
           <div className="cta-buttons">
             <a href="#rescue" className="white-btn">Report a Rescue</a>
-            <a href="#animals" className="transparent-btn">Find an Animal</a>
+            <Link to="/animals" className="transparent-btn" style={{ textDecoration: 'none' }}>Find an Animal</Link>
           </div>
         </div>
       </section>

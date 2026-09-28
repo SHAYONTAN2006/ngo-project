@@ -163,8 +163,8 @@ export default function Dashboard() {
         <section className="bottom-grid">
           <div className="panel">
             <div className="panel-header">
-              <h3>Adoption Queue</h3>
-              <a href="#dashboard">Manage</a>
+              <h3>Adoption & Foster Applications</h3>
+              <a href="#dashboard">Manage All</a>
             </div>
             <div className="table-wrap">
               <table>
@@ -172,15 +172,17 @@ export default function Dashboard() {
                   <tr>
                     <th>Animal</th>
                     <th>Applicant</th>
+                    <th>Type</th>
                     <th>Status</th>
                     <th>Timeline</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {[['Max', 'Priya S.', 'Approved', 'green', '3 days'], ['Luna', 'Arjun K.', 'Review', 'orange', '5 days'], ['Rocky', 'Neha P.', 'Pending', 'red', '1 day']].map(([animal, applicant, status, tone, timeline]) => (
-                    <tr key={animal}>
+                  {[['Max', 'Priya S.', 'Adopt', 'Approved', 'green', '3 days'], ['Luna', 'Arjun K.', 'Adopt', 'Review', 'orange', '5 days'], ['Rocky', 'Neha P.', 'Foster', 'Pending', 'red', '1 day'], ['Bella', 'Rohan M.', 'Foster', 'Approved', 'green', '2 days']].map(([animal, applicant, type, status, tone, timeline]) => (
+                    <tr key={applicant}>
                       <td>{animal}</td>
                       <td>{applicant}</td>
+                      <td><strong>{type}</strong></td>
                       <td><span className={`pill ${tone}`}>{status}</span></td>
                       <td>{timeline}</td>
                     </tr>
