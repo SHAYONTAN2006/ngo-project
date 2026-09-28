@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   PawPrint, 
@@ -203,7 +203,6 @@ export default function Dashboard() {
         <section className="stats-grid">
           {[[AlertTriangle, 'Pending Rescues', cases.length, '+3', 'red', 'warning'], [Dog, 'Active Animals', '148', '+12%', 'blue', 'up'], [HomeIcon, 'In Foster Care', '37', '+6%', 'green', 'up'], [Heart, 'Adoption Requests', '18', '+2', 'purple', 'warning']].map(([Icon, label, value, tag, tone, tagTone]) => (
             <div className="stat-card" key={label}>
-              <div className={`stat-icon ${tone}`}><Icon size={24} /></div>
               <div>
                 <span>{label}</span>
                 <strong>{value}</strong>
@@ -264,9 +263,6 @@ export default function Dashboard() {
               ) : alerts.map((alert) => (
                 <div className="alert-item" key={alert.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-                    <span className="alert-dot" style={{ backgroundColor: `${alert.color}15` }}>
-                      <alert.Icon size={20} color={alert.color} />
-                    </span>
                     <div>
                       <strong>{alert.title}</strong>
                       <small>{alert.copy}</small>
@@ -396,9 +392,9 @@ export default function Dashboard() {
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
-          <div className="top-actions">
-            <button type="button" className="icon-btn" aria-label="Notifications" onClick={() => alert('You have no new notifications.')}>Alerts</button>
-            <button type="button" className="icon-btn" aria-label="Messages" onClick={() => alert('You have no new messages.')}>Messages</button>
+          <div className="top-actions" style={{ display: 'flex', gap: '12px' }}>
+            <button type="button" aria-label="Notifications" onClick={() => alert('You have no new notifications.')} style={{ background: '#f8f0e7', border: '1px solid var(--border)', color: 'var(--secondary)', padding: '8px 16px', borderRadius: '8px', cursor: 'pointer', fontWeight: '500', fontSize: '13px' }}>Alerts</button>
+            <button type="button" aria-label="Messages" onClick={() => alert('You have no new messages.')} style={{ background: '#f8f0e7', border: '1px solid var(--border)', color: 'var(--secondary)', padding: '8px 16px', borderRadius: '8px', cursor: 'pointer', fontWeight: '500', fontSize: '13px' }}>Messages</button>
           </div>
         </header>
         

@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Heart, 
@@ -133,7 +133,7 @@ function HeroSlider() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % animals.length);
-    }, 5000);
+    }, 3000);
     return () => clearInterval(timer);
   }, [animals.length]);
 

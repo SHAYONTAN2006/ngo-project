@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { mockDatabase } from '../data/mockData';
 import { 
