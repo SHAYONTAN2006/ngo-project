@@ -82,11 +82,97 @@ export default function Dashboard() {
   };
 
   const renderContent = () => {
-    if (activeTab !== 'Dashboard') {
+    if (activeTab === 'Rescue Requests') {
       return (
-        <div style={{ padding: '40px', textAlign: 'center', backgroundColor: 'white', borderRadius: '20px', border: '1px solid var(--border)' }}>
-          <h2 style={{ color: 'var(--secondary)' }}>{activeTab} Module</h2>
-          <p style={{ color: 'var(--text-light)' }}>This section is currently under development. Please check back later.</p>
+        <div style={{ padding: '20px', backgroundColor: 'white', borderRadius: '16px', border: '1px solid var(--border)' }}>
+          <h2 style={{ marginBottom: '20px' }}>Rescue Requests</h2>
+          <table style={{ width: '100%', textAlign: 'left', borderCollapse: 'collapse' }}>
+            <thead>
+              <tr style={{ borderBottom: '1px solid var(--border)', color: 'var(--text-light)' }}>
+                <th style={{ padding: '12px' }}>ID</th>
+                <th style={{ padding: '12px' }}>Animal</th>
+                <th style={{ padding: '12px' }}>Detail</th>
+                <th style={{ padding: '12px' }}>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cases.map(c => (
+                <tr key={c.rescue_id} style={{ borderBottom: '1px solid #f2ebe4' }}>
+                  <td style={{ padding: '12px' }}>{c.rescue_id}</td>
+                  <td style={{ padding: '12px' }}>{c.animal_type}</td>
+                  <td style={{ padding: '12px' }}>{c.detail}</td>
+                  <td style={{ padding: '12px' }}>{c.status}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    }
+    if (activeTab === 'Animals') {
+      return (
+        <div style={{ padding: '20px', backgroundColor: 'white', borderRadius: '16px', border: '1px solid var(--border)' }}>
+          <h2 style={{ marginBottom: '20px' }}>Animals</h2>
+          <table style={{ width: '100%', textAlign: 'left', borderCollapse: 'collapse' }}>
+            <thead>
+              <tr style={{ borderBottom: '1px solid var(--border)', color: 'var(--text-light)' }}>
+                <th style={{ padding: '12px' }}>Name</th>
+                <th style={{ padding: '12px' }}>Breed</th>
+                <th style={{ padding: '12px' }}>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {mockDatabase.animals.map(a => (
+                <tr key={a.animal_id} style={{ borderBottom: '1px solid #f2ebe4' }}>
+                  <td style={{ padding: '12px' }}>{a.name}</td>
+                  <td style={{ padding: '12px' }}>{a.breed}</td>
+                  <td style={{ padding: '12px' }}>{a.status}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    }
+    if (activeTab === 'Applications') {
+      return (
+        <div style={{ padding: '20px', backgroundColor: 'white', borderRadius: '16px', border: '1px solid var(--border)' }}>
+          <h2 style={{ marginBottom: '20px' }}>Applications</h2>
+          <table style={{ width: '100%', textAlign: 'left', borderCollapse: 'collapse' }}>
+            <thead>
+              <tr style={{ borderBottom: '1px solid var(--border)', color: 'var(--text-light)' }}>
+                <th style={{ padding: '12px' }}>Applicant</th>
+                <th style={{ padding: '12px' }}>Type</th>
+                <th style={{ padding: '12px' }}>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style={{ padding: '12px' }}>Priya S.</td><td style={{ padding: '12px' }}>Adopt</td><td style={{ padding: '12px' }}>Approved</td></tr>
+              <tr><td style={{ padding: '12px' }}>Arjun K.</td><td style={{ padding: '12px' }}>Adopt</td><td style={{ padding: '12px' }}>Review</td></tr>
+              <tr><td style={{ padding: '12px' }}>Neha P.</td><td style={{ padding: '12px' }}>Foster</td><td style={{ padding: '12px' }}>Pending</td></tr>
+            </tbody>
+          </table>
+        </div>
+      );
+    }
+    if (activeTab === 'Volunteers') {
+      return (
+        <div style={{ padding: '20px', backgroundColor: 'white', borderRadius: '16px', border: '1px solid var(--border)' }}>
+          <h2 style={{ marginBottom: '20px' }}>Volunteers</h2>
+          <table style={{ width: '100%', textAlign: 'left', borderCollapse: 'collapse' }}>
+            <thead>
+              <tr style={{ borderBottom: '1px solid var(--border)', color: 'var(--text-light)' }}>
+                <th style={{ padding: '12px' }}>Name</th>
+                <th style={{ padding: '12px' }}>Role</th>
+                <th style={{ padding: '12px' }}>Availability</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style={{ padding: '12px' }}>Meera</td><td style={{ padding: '12px' }}>Transport</td><td style={{ padding: '12px' }}>Available</td></tr>
+              <tr><td style={{ padding: '12px' }}>Rahul</td><td style={{ padding: '12px' }}>Medical Aid</td><td style={{ padding: '12px' }}>Busy</td></tr>
+              <tr><td style={{ padding: '12px' }}>Sneha</td><td style={{ padding: '12px' }}>Foster Care</td><td style={{ padding: '12px' }}>Free</td></tr>
+            </tbody>
+          </table>
         </div>
       );
     }
@@ -151,7 +237,7 @@ export default function Dashboard() {
                       </button>
                     </div>
                     <div className="kanban-card-desc">
-                      {caseItem.animal_type} • {caseItem.detail}
+                      {caseItem.animal_type} â€¢ {caseItem.detail}
                     </div>
                     <div className="kanban-card-footer">
                       <span className={`case-priority`} style={{color: caseItem.priority === 'Urgent' ? 'var(--red)' : 'var(--text-light)'}}>{caseItem.priority}</span>
@@ -280,7 +366,7 @@ export default function Dashboard() {
       <aside className="sidebar">
         <Link to="/" className="brand">
           <PawPrint className="brand-mark" size={24} color="#f97316" />
-          <div className="brand-name">Paw<span>Care</span></div>
+          <div className="brand-name">PawCare</div>
         </Link>
         <nav className="nav-group">
           <div className="nav-label">Overview</div>
@@ -318,13 +404,6 @@ export default function Dashboard() {
           <div className="top-actions">
             <button type="button" className="icon-btn" aria-label="Notifications" onClick={() => alert('You have no new notifications.')}><Bell size={20} /></button>
             <button type="button" className="icon-btn" aria-label="Messages" onClick={() => alert('You have no new messages.')}><Mail size={20} /></button>
-            <div className="profile-chip">
-              <div className="avatar" style={{ background: 'var(--primary)', color: 'white' }}>AD</div>
-              <div>
-                <strong>Admin</strong>
-                <small>Operations</small>
-              </div>
-            </div>
           </div>
         </header>
         

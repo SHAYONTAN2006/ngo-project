@@ -22,7 +22,7 @@ export default function AnimalsGallery() {
         <div className="nav-container">
           <Link to="/" className="logo" style={{ textDecoration: 'none' }}>
             <PawPrint className="brand-icon" size={24} color="#f97316" />
-            <span>Paw<span>Care</span></span>
+            <span>PawCare</span>
           </Link>
           <div className="nav-actions">
             <Link to="/" className="nav-rescue-btn" style={{ background: 'transparent', color: '#64748b', border: '1px solid #cbd5e1' }}>

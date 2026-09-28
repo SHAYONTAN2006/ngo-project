@@ -29,7 +29,7 @@ function Brand({ onClick }) {
   return (
     <button type="button" className="logo" onClick={onClick}>
       <PawPrint className="brand-icon" size={24} color="#f97316" />
-      <span>Paw<span>Care</span></span>
+      <span>PawCare</span>
     </button>
   );
 }
@@ -142,14 +142,14 @@ export default function Home() {
             <Link to="/dashboard" className="login-btn">Admin Login</Link>
             <a href="#rescue" className="nav-rescue-btn">Report Rescue</a>
           </div>
-          <button type="button" className="mobile-menu" aria-label="Open menu">☰</button>
+          <button type="button" className="mobile-menu" aria-label="Open menu">â˜°</button>
         </div>
       </header>
       
       <section className="hero" id="home">
         <div className="hero-container">
           <div className="hero-content">
-            <h1>DOG FOR<span>ADOPTION</span></h1>
+            <h1>DOG FOR ADOPTION</h1>
             <p>We are helping lost and abandoned dogs find their forever homes. Currently, we have a Pomeranian looking for a loving family. This dog is healthy, neutered, and vaccinated. If you are interested in adopting or fostering, please contact us.</p>
             <div className="adoption-bullet-list">
               <div className="bullet-line"><CheckCircle2 size={16} /> Pomeranian : Male</div>
@@ -190,7 +190,7 @@ export default function Home() {
       </section>
       
       <section className="section animals-section" id="animals">
-        <Heading tag="MEET OUR ANIMALS" title={<>Looking for your<span>new best friend?</span></>} />
+        <Heading tag="MEET OUR ANIMALS" title={<>Looking for your new best friend?</>} />
         <div className="animal-grid">
           {mockDatabase.animals.map((animal) => (
             <article className="animal-card" key={animal.animal_id}>
@@ -202,7 +202,7 @@ export default function Home() {
                 <div className="animal-title">
                   <div>
                     <h3>{animal.name}</h3>
-                    <p>{animal.breed} • {animal.gender}</p>
+                    <p>{animal.breed} â€¢ {animal.gender}</p>
                   </div>
                   <span className="age">{animal.age}</span>
                 </div>
@@ -222,7 +222,7 @@ export default function Home() {
         <div className="rescue-container">
           <div className="rescue-info">
             <span className="section-tag light">NEED IMMEDIATE HELP?</span>
-            <h2>Found an animal<span>in need?</span></h2>
+            <h2>Found an animal in need?</h2>
             <p>Report the animal through our rescue form. Our team will verify the request, assign a volunteer and track the rescue until the animal reaches safety.</p>
             <div className="rescue-steps">
               {[['01', 'Submit Report', 'Tell us where and what happened.'], ['02', 'Verification', 'Our team reviews the request.'], ['03', 'Rescue', 'A volunteer is assigned to help.']].map(([number, title, copy]) => (
@@ -246,7 +246,7 @@ export default function Home() {
       </section>
       
       <section className="section workflow-section" id="about">
-        <Heading tag="HOW IT WORKS" title={<>From rescue to<span>forever home.</span></>} copy="Every rescue is carefully tracked so that no animal gets lost in the process." />
+        <Heading tag="HOW IT WORKS" title={<>From rescue to forever home.</>} copy="Every rescue is carefully tracked so that no animal gets lost in the process." />
         <div className="workflow">
           {workflow.map(([Icon, title, copy], index) => (
             <div className="workflow-item" key={title}>
@@ -277,7 +277,7 @@ export default function Home() {
           </div>
           <div className="foster-content">
             <span className="section-tag">BECOME A FOSTER</span>
-            <h2>You can be their<span>temporary home.</span></h2>
+            <h2>You can be their temporary home.</h2>
             <p>Foster families provide rescued animals with a safe environment while they recover or wait for adoption. Even a temporary home can completely change an animal's life.</p>
             <ul className="check-list">
               <li><CheckCircle2 size={16} color="#059669" /> Flexible fostering periods</li>
@@ -294,7 +294,7 @@ export default function Home() {
         <div className="adoption-banner">
           <div>
             <span className="section-tag light">ADOPTION</span>
-            <h2>Don't shop.<span>Adopt.</span></h2>
+            <h2>Don't shop. Adopt.</h2>
             <p>Your next best friend might already be waiting for you.</p>
           </div>
           <Link to="/animals" className="white-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>Browse Animals <ArrowRight size={16} /></Link>
@@ -304,7 +304,7 @@ export default function Home() {
       <section className="cta-section">
         <div className="cta-content">
           <PawPrint size={48} color="#f97316" style={{ margin: '0 auto 1.5rem auto' }} />
-          <h2>Every animal deserves<span>a chance.</span></h2>
+          <h2>Every animal deserves a chance.</h2>
           <p>Whether you rescue, foster, volunteer or adopt, you can make a difference.</p>
           <div className="cta-buttons">
             <a href="#rescue" className="white-btn">Report a Rescue</a>
@@ -329,7 +329,7 @@ export default function Home() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>© 2026 PawCare. All rights reserved.</p>
+          <p>Â© 2026 PawCare. All rights reserved.</p>
           <p>Made for animals</p>
         </div>
       </footer>

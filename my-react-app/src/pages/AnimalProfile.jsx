@@ -33,7 +33,7 @@ export default function AnimalProfile() {
         <div className="nav-container">
           <Link to="/" className="logo" style={{ textDecoration: 'none' }}>
             <PawPrint className="brand-icon" size={24} color="#f97316" />
-            <span>Paw<span>Care</span></span>
+            <span>PawCare</span>
           </Link>
           <div className="nav-actions">
             <Link to="/" className="nav-rescue-btn">
@@ -66,7 +66,7 @@ export default function AnimalProfile() {
             <span className="section-tag">{animal.status}</span>
             <h1 style={{ fontSize: '3rem', margin: '10px 0', color: '#1e293b' }}>{animal.name}</h1>
             <p style={{ fontSize: '1.2rem', color: '#64748b', marginBottom: '30px' }}>
-              {animal.breed} • {animal.gender} • {animal.age}
+              {animal.breed} â€¢ {animal.gender} â€¢ {animal.age}
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '40px' }}>
