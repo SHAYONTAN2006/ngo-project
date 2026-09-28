@@ -11,7 +11,9 @@ import {
   Heart,
   Calendar,
   CheckCircle2,
-  Syringe
+  Syringe,
+  Clock,
+  MoreHorizontal
 } from 'lucide-react';
 import { mockDatabase } from '../data/mockData';
 
@@ -105,26 +107,44 @@ export default function Dashboard() {
             </div>
           ))}
         </section>
-        <section className="content-grid">
-          <div className="panel">
-            <div className="panel-header">
-              <h3>Recent Rescue Cases</h3>
-              <a href="#dashboard">View all</a>
-            </div>
-            <div className="case-list">
-              {mockDatabase.rescueCases.map((caseItem) => (
-                <div className="case-row" key={caseItem.rescue_id}>
-                  <div className="case-icon"><Dog size={20} color="#64748b" /></div>
-                  <div className="case-meta">
-                    <strong>{caseItem.rescue_id}</strong>
-                    <small>{caseItem.animal_type} • {caseItem.detail}</small>
-                  </div>
-                  <span className={`case-status status-${caseItem.status.toLowerCase()}`}>{caseItem.status}</span>
-                  <span className="case-priority">{caseItem.priority}</span>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+          <h3 style={{fontSize: '1.4rem', margin: 0}}>Rescue Operations Board</h3>
+          <a href="#dashboard" style={{color: 'var(--primary)', fontSize: '13px', fontWeight: 'bold'}}>View Map</a>
+        </div>
+        <section className="kanban-board">
+          {['Reported', 'Rescue', 'Treatment', 'Recovery'].map(statusColumn => {
+            const columnCases = mockDatabase.rescueCases.filter(c => 
+              c.status === statusColumn || (statusColumn === 'Reported' && c.status === 'New') || (statusColumn === 'Recovery' && c.status === 'Foster')
+            );
+            return (
+              <div className="kanban-column" key={statusColumn}>
+                <div className="kanban-column-header">
+                  <span>{statusColumn}</span>
+                  <span className="kanban-count">{columnCases.length}</span>
                 </div>
-              ))}
-            </div>
-          </div>
+                {columnCases.map(caseItem => (
+                  <div className="kanban-card" key={caseItem.rescue_id}>
+                    <div className="kanban-card-title">
+                      <span>{caseItem.rescue_id}</span>
+                      <MoreHorizontal size={14} color="#94a3b8" />
+                    </div>
+                    <div className="kanban-card-desc">
+                      {caseItem.animal_type} • {caseItem.detail}
+                    </div>
+                    <div className="kanban-card-footer">
+                      <span className={`case-priority`} style={{color: caseItem.priority === 'Urgent' ? 'var(--red)' : 'var(--text-light)'}}>{caseItem.priority}</span>
+                      <span style={{fontSize: '10px', color: '#94a3b8', display: 'flex', alignItems: 'center', gap: '4px'}}>
+                        <Clock size={10} /> 2h ago
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            );
+          })}
+        </section>
+        
+        <section className="content-grid" style={{ gridTemplateColumns: '1fr' }}>
           <div className="panel">
             <div className="panel-header">
               <h3>Alerts</h3>
