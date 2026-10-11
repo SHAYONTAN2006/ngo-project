@@ -37,6 +37,24 @@ export default function AnimalProfile() {
             <span>PawCare</span>
           </Link>
           <div className="nav-actions">
+            <Link 
+              to="/vets" 
+              style={{ 
+                display: 'inline-flex', 
+                alignItems: 'center', 
+                gap: '6px', 
+                backgroundColor: '#fff4eb', 
+                border: '1px solid #fed7aa', 
+                color: 'var(--primary)', 
+                padding: '7px 14px', 
+                borderRadius: '20px', 
+                fontWeight: '700', 
+                fontSize: '13px', 
+                textDecoration: 'none' 
+              }}
+            >
+              <Stethoscope size={15} /> Find Vets
+            </Link>
             <Link to="/animals" className="nav-rescue-btn" style={{ background: 'transparent', color: '#64748b', border: '1px solid #cbd5e1' }}>
               <ArrowLeft size={16} style={{ marginRight: '8px' }}/> Back to Animals
             </Link>

@@ -107,6 +107,7 @@ export default function VolunteerOnboarding() {
           <nav className="nav-links">
             <Link to="/">Home</Link>
             <Link to="/animals">Animals</Link>
+            <Link to="/vets">Find Vets</Link>
             <Link to="/track-rescue">Track Rescue</Link>
           </nav>
           <div className="nav-actions">
