@@ -215,7 +215,6 @@ export default function Home() {
             <Link to="/">Home</Link>
             <a href="#rescue">Rescue</a>
             <Link to="/animals">Animals</Link>
-            <Link to="/vets" style={{ fontWeight: '700', color: 'var(--primary)' }}>Find Vets</Link>
             <Link to="/apply/foster">Foster</Link>
             <Link to="/volunteer">Volunteer &amp; Earn</Link>
           </nav>
