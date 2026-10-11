@@ -139,6 +139,7 @@ img {
 .nav-links {
     display: flex;
     gap: 32px;
+    margin: 0 auto;
 }
 
 .nav-links a {
@@ -157,7 +158,6 @@ img {
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-left: auto;
 }
 
 .login-btn {

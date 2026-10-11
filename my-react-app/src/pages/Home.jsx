@@ -211,14 +211,23 @@ export default function Home() {
       <header className="navbar">
         <div className="nav-container">
           <Brand onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
-          <nav className="nav-links">
+          <nav className="nav-links" style={{ margin: '0 auto', display: 'flex', gap: '32px' }}>
             <Link to="/">Home</Link>
             <a href="#rescue">Rescue</a>
             <Link to="/animals">Animals</Link>
             <Link to="/apply/foster">Foster</Link>
             <Link to="/volunteer">Volunteer &amp; Earn</Link>
           </nav>
-          <div className="nav-actions" style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <div className="nav-actions" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <button 
+              type="button" 
+              className="mobile-menu" 
+              aria-label="Open menu"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              style={{ background: 'transparent', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', padding: '4px', marginRight: '6px' }}
+            >
+              <Menu size={24} />
+            </button>
             <Link 
               to="/vets" 
               style={{ 
@@ -240,15 +249,6 @@ export default function Home() {
             <Link to="/dashboard" className="login-btn">Admin Login</Link>
             <a href="#rescue" className="nav-rescue-btn">Report Rescue</a>
           </div>
-          <button 
-            type="button" 
-            className="mobile-menu" 
-            aria-label="Open menu"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            style={{ background: 'transparent', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center' }}
-          >
-            <Menu size={24} />
-          </button>
         </div>
 
         {/* Mobile dropdown drawer */}
