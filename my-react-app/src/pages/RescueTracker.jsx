@@ -46,7 +46,6 @@ export default function RescueTracker() {
           <nav className="nav-links">
             <Link to="/">Home</Link>
             <Link to="/animals">Animals</Link>
-            <Link to="/vets">Find Vets</Link>
             <Link to="/volunteer">Volunteer &amp; Earn</Link>
           </nav>
           <div className="nav-actions">

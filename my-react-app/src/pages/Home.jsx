@@ -215,29 +215,10 @@ export default function Home() {
             <Link to="/">Home</Link>
             <a href="#rescue">Rescue</a>
             <Link to="/animals">Animals</Link>
-            <Link to="/vets" style={{ fontWeight: '700', color: 'var(--primary)' }}>Find Vets</Link>
             <Link to="/apply/foster">Foster</Link>
             <Link to="/volunteer">Volunteer &amp; Earn</Link>
           </nav>
           <div className="nav-actions">
-            <Link 
-              to="/vets" 
-              style={{ 
-                display: 'inline-flex', 
-                alignItems: 'center', 
-                gap: '6px', 
-                backgroundColor: '#fff4eb', 
-                border: '1px solid #fed7aa', 
-                color: 'var(--primary)', 
-                padding: '7px 14px', 
-                borderRadius: '20px', 
-                fontWeight: '700', 
-                fontSize: '13px', 
-                textDecoration: 'none' 
-              }}
-            >
-              <Stethoscope size={15} /> Find Vets
-            </Link>
             <Link to="/dashboard" className="login-btn">Admin Login</Link>
             <a href="#rescue" className="nav-rescue-btn">Report Rescue</a>
           </div>
@@ -264,9 +245,6 @@ export default function Home() {
             boxShadow: '0 10px 25px rgba(0,0,0,0.06)'
           }}>
             <Link to="/" onClick={() => setMobileMenuOpen(false)} style={{ fontWeight: '600', color: 'var(--text)' }}>Home</Link>
-            <Link to="/vets" onClick={() => setMobileMenuOpen(false)} style={{ fontWeight: '700', color: 'var(--primary)', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Stethoscope size={18} /> Find Verified Vets &amp; Clinics
-            </Link>
             <Link to="/animals" onClick={() => setMobileMenuOpen(false)} style={{ fontWeight: '600', color: 'var(--text)' }}>Animals for Adoption</Link>
             <a href="#rescue" onClick={() => setMobileMenuOpen(false)} style={{ fontWeight: '600', color: 'var(--text)' }}>Report an Animal Rescue</a>
             <Link to="/volunteer" onClick={() => setMobileMenuOpen(false)} style={{ fontWeight: '600', color: 'var(--text)' }}>Volunteer &amp; Earn Stipends</Link>
