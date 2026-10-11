@@ -204,6 +204,8 @@ function HeroSlider() {
 }
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div className="home-page">
       <header className="navbar">
@@ -213,22 +215,73 @@ export default function Home() {
             <Link to="/">Home</Link>
             <a href="#rescue">Rescue</a>
             <Link to="/animals">Animals</Link>
+            <Link to="/vets" style={{ fontWeight: '700', color: 'var(--primary)' }}>Find Vets</Link>
             <Link to="/apply/foster">Foster</Link>
-            <Link to="/volunteer">Volunteer</Link>
+            <Link to="/volunteer">Volunteer &amp; Earn</Link>
           </nav>
           <div className="nav-actions">
+            <Link 
+              to="/vets" 
+              style={{ 
+                display: 'inline-flex', 
+                alignItems: 'center', 
+                gap: '6px', 
+                backgroundColor: '#fff4eb', 
+                border: '1px solid #fed7aa', 
+                color: 'var(--primary)', 
+                padding: '7px 14px', 
+                borderRadius: '20px', 
+                fontWeight: '700', 
+                fontSize: '13px', 
+                textDecoration: 'none' 
+              }}
+            >
+              <Stethoscope size={15} /> Find Vets
+            </Link>
             <Link to="/dashboard" className="login-btn">Admin Login</Link>
             <a href="#rescue" className="nav-rescue-btn">Report Rescue</a>
           </div>
-          <button type="button" className="mobile-menu" aria-label="Open menu"><Menu size={24} /></button>
+          <button 
+            type="button" 
+            className="mobile-menu" 
+            aria-label="Open menu"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            style={{ background: 'transparent', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+          >
+            <Menu size={24} />
+          </button>
         </div>
+
+        {/* Mobile dropdown drawer */}
+        {mobileMenuOpen && (
+          <div style={{
+            backgroundColor: 'white',
+            borderBottom: '1px solid var(--border)',
+            padding: '20px 24px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '14px',
+            boxShadow: '0 10px 25px rgba(0,0,0,0.06)'
+          }}>
+            <Link to="/" onClick={() => setMobileMenuOpen(false)} style={{ fontWeight: '600', color: 'var(--text)' }}>Home</Link>
+            <Link to="/vets" onClick={() => setMobileMenuOpen(false)} style={{ fontWeight: '700', color: 'var(--primary)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Stethoscope size={18} /> Find Verified Vets &amp; Clinics
+            </Link>
+            <Link to="/animals" onClick={() => setMobileMenuOpen(false)} style={{ fontWeight: '600', color: 'var(--text)' }}>Animals for Adoption</Link>
+            <a href="#rescue" onClick={() => setMobileMenuOpen(false)} style={{ fontWeight: '600', color: 'var(--text)' }}>Report an Animal Rescue</a>
+            <Link to="/volunteer" onClick={() => setMobileMenuOpen(false)} style={{ fontWeight: '600', color: 'var(--text)' }}>Volunteer &amp; Earn Stipends</Link>
+            <Link to="/apply/foster" onClick={() => setMobileMenuOpen(false)} style={{ fontWeight: '600', color: 'var(--text)' }}>Become a Foster</Link>
+            <Link to="/dashboard" onClick={() => setMobileMenuOpen(false)} style={{ fontWeight: '600', color: 'var(--secondary)' }}>Admin Management Portal</Link>
+          </div>
+        )}
       </header>
       <HeroSlider />
       <section className="quick-actions">
-        <div className="quick-container">
+        <div className="quick-container" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
           <QuickCard icon={AlertTriangle} title="Report a Rescue" copy="Found an animal that needs help?" href="#rescue" />
           <QuickCard icon={PawPrint} title="Adopt an Animal" copy="Give a rescued animal a forever home." href="#animals" />
           <QuickCard icon={HomeIcon} title="Become a Foster" copy="Provide temporary care and love." href="#foster" />
+          <QuickCard icon={Stethoscope} title="Find Verified Vets" copy="24/7 clinics, doctors &amp; emergency care." href="/vets" />
         </div>
       </section>
       
@@ -362,7 +415,7 @@ export default function Home() {
             <Brand onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
             <p>Connecting rescued animals with the people who can give them a second chance.</p>
           </div>
-          <FooterColumn title="Platform" links={['Adopt', 'Report Rescue', 'Become a Foster', 'Volunteer']} />
+          <FooterColumn title="Platform" links={['Adopt', 'Report Rescue', 'Find Vets', 'Become a Foster', 'Volunteer']} />
           <FooterColumn title="Support" links={['About Us', 'Contact', 'FAQs', 'Privacy Policy']} />
           <div className="footer-column">
             <h4>Contact</h4>
@@ -372,7 +425,7 @@ export default function Home() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>Â© 2026 PawCare. All rights reserved.</p>
+          <p>© 2026 PawCare. All rights reserved.</p>
           <p>Made for animals</p>
         </div>
       </footer>

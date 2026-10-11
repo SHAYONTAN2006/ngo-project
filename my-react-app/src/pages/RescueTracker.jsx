@@ -43,6 +43,12 @@ export default function RescueTracker() {
             <PawPrint className="brand-icon" size={24} color="#f97316" />
             <span>PawCare</span>
           </Link>
+          <nav className="nav-links">
+            <Link to="/">Home</Link>
+            <Link to="/animals">Animals</Link>
+            <Link to="/vets">Find Vets</Link>
+            <Link to="/volunteer">Volunteer &amp; Earn</Link>
+          </nav>
           <div className="nav-actions">
             <Link to="/" className="nav-rescue-btn">
               <ArrowLeft size={16} style={{ marginRight: '8px' }}/> Back to Home
@@ -131,6 +137,21 @@ export default function RescueTracker() {
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Rescuer Compensation Notice Box */}
+              <div style={{ marginTop: '30px', padding: '20px', borderRadius: '16px', background: '#fffaf4', border: '1px solid #fed7aa', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px' }}>
+                <div>
+                  <strong style={{ color: 'var(--secondary)', display: 'block', fontSize: '14px', marginBottom: '2px' }}>
+                    Assigned Rescuer / Field Volunteer?
+                  </strong>
+                  <p style={{ margin: 0, fontSize: '12px', color: 'var(--text-light)' }}>
+                    Once this animal is securely admitted to a partner clinic, submit your completion claim for instant UPI stipend and fuel reimbursement.
+                  </p>
+                </div>
+                <Link to="/volunteer" className="primary-btn" style={{ padding: '8px 16px', fontSize: '12px', textDecoration: 'none' }}>
+                  Claim Rescue Payout
+                </Link>
               </div>
             </div>
           )}

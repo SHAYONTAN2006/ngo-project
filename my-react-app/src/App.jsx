@@ -8,6 +8,7 @@ import AnimalsGallery from './pages/AnimalsGallery';
 import VolunteerOnboarding from './pages/VolunteerOnboarding';
 import RescueTracker from './pages/RescueTracker';
 import ApplicationForm from './pages/ApplicationForm';
+import Veterinarians from './pages/Veterinarians';
 import './App.css';
 import './dashboard.css';
 
@@ -45,6 +46,7 @@ function App() {
         <Route path="/animals" element={<AnimalsGallery />} />
         <Route path="/volunteer" element={<VolunteerOnboarding />} />
         <Route path="/track-rescue" element={<RescueTracker />} />
+        <Route path="/vets" element={<Veterinarians />} />
         <Route path="/apply/:type" element={<ApplicationForm />} />
       </Routes>
     </PageWrapper>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { PawPrint, ArrowLeft, CheckCircle2, User, Home as HomeIcon, Heart } from 'lucide-react';
+import { PawPrint, ArrowLeft, CheckCircle2, User, Home as HomeIcon, Heart, Stethoscope } from 'lucide-react';
 
 export default function ApplicationForm() {
   const { type } = useParams(); // 'adopt' or 'foster'
@@ -56,6 +56,24 @@ export default function ApplicationForm() {
             <span>PawCare</span>
           </Link>
           <div className="nav-actions">
+            <Link 
+              to="/vets" 
+              style={{ 
+                display: 'inline-flex', 
+                alignItems: 'center', 
+                gap: '6px', 
+                backgroundColor: '#fff4eb', 
+                border: '1px solid #fed7aa', 
+                color: 'var(--primary)', 
+                padding: '7px 14px', 
+                borderRadius: '20px', 
+                fontWeight: '700', 
+                fontSize: '13px', 
+                textDecoration: 'none' 
+              }}
+            >
+              <Stethoscope size={15} /> Find Vets
+            </Link>
             <button onClick={() => navigate(-1)} className="nav-rescue-btn" style={{ background: 'transparent', color: '#64748b', border: '1px solid #cbd5e1' }}>
               <ArrowLeft size={16} style={{ marginRight: '8px' }}/> Cancel
             </button>
