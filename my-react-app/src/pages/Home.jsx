@@ -218,7 +218,7 @@ export default function Home() {
             <Link to="/apply/foster">Foster</Link>
             <Link to="/volunteer">Volunteer &amp; Earn</Link>
           </nav>
-          <div className="nav-actions">
+          <div className="nav-actions" style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '16px' }}>
             <Link 
               to="/vets" 
               style={{ 
